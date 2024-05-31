@@ -5,10 +5,10 @@ export const generateToken = (payload) => {
   return jwt.sign(payload, SECRET_KEY)
 }
 
-export const verifyToken = (req, res, next) => {
+const logueado = (req, res, next) => {
   const token = req.headers.authorization
 
-  if (!token == null) { return res.status(403).json({ message: 'Token requerido' }) }
+  if (!token == null) { return res.status(403).json({ message: 'No Autorizad' }) }
 
   const authorization = jwt.verify(token, SECRET_KEY, (err, user) => {
     if (err) return res.status(400).json({ message: 'Token invalido' })
@@ -17,3 +17,5 @@ export const verifyToken = (req, res, next) => {
   req.token = authorization
   next()
 }
+
+export default logueado

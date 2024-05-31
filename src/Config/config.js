@@ -9,4 +9,4 @@ export const DB_PASSWORD = process.env.DB_PASSWORD || ''
 export const DB_USERNAME = process.env.DB_USERNAME || 'root'
 export const DB_DATABASE = process.env.DB_DATABASE || 'login_registration'
 export const SECRET_KEY = process.env.SECRET_KEY || 'milogin'
-export const corsAccept = ['http://localhost:5173', 'http://127.0.0.1:5500', 'thunder client']
+export const corsAccept = 'http://localhost:5173'
