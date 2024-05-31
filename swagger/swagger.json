@@ -1,17 +1,17 @@
 {
     "swagger": "2.0",
     "info": {
-      "title": "MP_Login",
-      "description": "Login full stack",
+      "title": "MP4_Login",
+      "description": "Login Api Rest y React",
       "version": "1.0.0"
     },
     "host": "localhost:3000",
-    "basePath": "/",
+    "basePath": "/login",
     "schemes": [
       "http"
     ],
     "paths": {
-      "/api/user/login": {
+      "/login/": {
         "post": {
           "description": "",
           "parameters": [
@@ -27,10 +27,10 @@
                 "type": "object",
                 "properties": {
                   "email": {
-                    "example": "any"
+                    "example": "test@gmail.com"
                   },
                   "password": {
-                    "example": "any"
+                    "example": "Test1234"
                   }
                 }
               }
@@ -41,18 +41,15 @@
               "description": "OK"
             },
             "400": {
-              "description": "Bad Request"
-            },
-            "403": {
-              "description": "Forbidden"
+              "description": "Faltan Datos"
             },
             "500": {
-              "description": "Internal Server Error"
+              "description": "Error Interno"
             }
           }
         }
       },
-      "/api/user/register": {
+      "/login/enter": {
         "post": {
           "description": "",
           "parameters": [
@@ -68,10 +65,10 @@
                 "type": "object",
                 "properties": {
                   "email": {
-                    "example": "any"
+                    "example": "name@gmail.com"
                   },
                   "password": {
-                    "example": "any"
+                    "example": "Prueba1235"
                   }
                 }
               }
@@ -81,22 +78,19 @@
             "200": {
               "description": "OK"
             },
-            "201": {
-              "description": "Created"
-            },
             "400": {
-              "description": "Bad Request"
+              "description": "Falta Informacion"
             },
             "403": {
-              "description": "Forbidden"
+              "description": "Credenciales invalidas"
             },
             "500": {
-              "description": "Internal Server Error"
+              "description": "Error Interno"
             }
           }
         }
       },
-      "/api/user/profile": {
+      "/perfil/see/:id": {
         "get": {
           "description": "",
           "parameters": [
@@ -115,51 +109,16 @@
             "200": {
               "description": "OK"
             },
-            "400": {
-              "description": "Bad Request"
-            },
-            "403": {
-              "description": "Forbidden"
-            },
-            "404": {
-              "description": "Not Found"
+            "405": {
+              "description": "No existe informacion"
             },
             "500": {
-              "description": "Internal Server Error"
+              "description": "Error Interno"
             }
           }
         }
-      },
-      "/api/user/profilePicture/{filename}": {
-        "get": {
-          "description": "",
-          "parameters": [
-            {
-              "name": "filename",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "origin",
-              "in": "header",
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK"
-            },
-            "403": {
-              "description": "Forbidden"
-            },
-            "404": {
-              "description": "Not Found"
-            }
-          }
-        }
-      },
-      "/api/user/update": {
+      },      
+      "/perfil/updated/:id": {
         "patch": {
           "description": "",
           "parameters": [
@@ -180,19 +139,19 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "example": "any"
+                    "example": "name"
                   },
                   "bio": {
-                    "example": "any"
+                    "example": "I am name"
                   },
                   "phone": {
-                    "example": "any"
+                    "example": "1231235"
                   },
                   "email": {
-                    "example": "any"
+                    "example": "test@gmail.com"
                   },
                   "password": {
-                    "example": "any"
+                    "example": "Test1234"
                   }
                 }
               }
@@ -203,16 +162,16 @@
               "description": "OK"
             },
             "400": {
-              "description": "Bad Request"
+              "description": "Falta Informacion"
             },
-            "403": {
-              "description": "Forbidden"
-            },
-            "404": {
-              "description": "Not Found"
+            "405": {
+              "description": "Datos no encontrado"
             },
             "500": {
-              "description": "Internal Server Error"
+              "description": "Error Interno"
+            },
+            "501": {
+              "description": "Error ingresar datos"
             }
           }
         }
